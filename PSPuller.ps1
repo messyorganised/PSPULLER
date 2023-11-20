@@ -1,4 +1,3 @@
-﻿
 function WFU {
     write-host "
     Starting Windows Update
