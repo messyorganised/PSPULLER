@@ -37,22 +37,9 @@ Press any other keys to end the set up
 
 "
 $codelink = Read-Host
-$PsPullerOption = $codelink
-
-if($PsPullerOption -eq '1'){
-    WFU
-}
-
-elseif($PsPullerOption -eq'2'){
-    DCU
-}
-
-elseif ($PsPullerOption -eq '3') {
-    AllUpdates
-}
-
-else {
-    write-host "
-    No valid options selected. Closing Puller.
-    "
+switch ($codelink) {
+    '1' { WFU }
+    '2' { DCU }
+    '3' { AllUpdates }
+    default { Write-Host "No valid options selected. Closing Puller." }
 }
