@@ -24,9 +24,10 @@ Write-Host "
 Welcome to PSPuller. A tool that pull scrips form my github repo. 
 Please enter the following number for their corresponding services.
 
-1= Windows Update
-2= Dell command Update
-3= All listed updates
+1 = Windows Update
+2 = Dell command Update
+3 = All listed updates
+4 = ADBRF
 
 Press any other keys to end the set up
 
