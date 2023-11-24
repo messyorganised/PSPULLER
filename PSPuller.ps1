@@ -1,25 +1,15 @@
 function WFU {
-    write-host "
-    Starting Windows Update
-    "
-    $ScriptFromGitHub = Invoke-WebRequest https://neon.ly/mowfu1 -UseBasicParsing
-  
-    Invoke-Expression $($ScriptFromGitHub.Content)
+    write-host "Starting Windows Update..." -Seperator "`n"
+    Invoke-Expression (Invoke-WebRequest https://neon.ly/mowfu1 -UseBasicParsing).Content
 }
 
 function DCU {
-    write-host "
-    Starting Dell Comand Update 
-    "
-    $ScriptFromGitHub = Invoke-WebRequest https://neon.ly/modcu1 -UseBasicParsing
-  
-    Invoke-Expression $($ScriptFromGitHub.Content)  
+    write-host "Starting Dell Comand Update..." -Seperator "`n"
+    Invoke-Expression (Invoke-WebRequest https://neon.ly/modcu1 -UseBasicParsing).Content
 }
 
 function AllUpdates {
-    write-host "
-    Starting All Updates...
-    "
+    write-host "Starting All Updates..." -Seperator "`n"
     WFU -Wait
     DCU
 }
@@ -37,9 +27,20 @@ Press any other keys to end the set up
 
 "
 $codelink = Read-Host
-switch ($codelink) {
-    '1' { WFU }
-    '2' { DCU }
-    '3' { AllUpdates }
-    default { Write-Host "No valid options selected. Closing Puller." }
+$PsPullerOption = $codelink
+
+if($PsPullerOption -eq '1'){
+    WFU
+}
+
+elseif($PsPullerOption -eq'2'){
+    DCU
+}
+
+elseif ($PsPullerOption -eq '3') {
+    AllUpdates
+}
+
+else {
+    write-host "No valid options selected. Closing Puller." -Seperator "`n"
 }
