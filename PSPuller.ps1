@@ -1,20 +1,20 @@
 function WFU {
-    write-host "Starting Windows Update..." -Seperator "`n"
+    write-host "Starting Windows Update..."  "`n"
     Invoke-Expression (Invoke-WebRequest https://neon.ly/mowfu1 -UseBasicParsing).Content
 }
 
 function DCU {
-    write-host "Starting Dell Comand Update..." -Seperator "`n"
+    write-host "Starting Dell Comand Update..."  "`n"
     Invoke-Expression (Invoke-WebRequest https://neon.ly/modcu1 -UseBasicParsing).Content
 }
 
 function ADBRF {
-    write-host "Starting ADBRF..." -Seperator "`n"
+    write-host "Starting ADBRF..."  "`n"
     Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/messyorganised/ADBRF/main/AD%20Broker%20Folder%20Rename%20Fix.ps1 -UseBasicParsing).Content
 }
 
 function AllUpdates {
-    write-host "Starting All Updates..." -Seperator "`n"
+    write-host "Starting All Updates..."  "`n"
     WFU -Wait
     DCU
 }
@@ -37,5 +37,5 @@ switch ($codelink) {
     '2' { DCU }
     '3' { AllUpdates }
     '4' { ADBRF }
-    default { Write-Host "No valid options selected. Closing Puller."  -Seperator "`n" }
+    default { Write-Host "No valid options selected. Closing Puller."   "`n" }
 }
