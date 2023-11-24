@@ -8,6 +8,11 @@ function DCU {
     Invoke-Expression (Invoke-WebRequest https://neon.ly/modcu1 -UseBasicParsing).Content
 }
 
+function ADBRF {
+    write-host "Starting ADBRF..." -Seperator "`n"
+    Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/messyorganised/ADBRF/main/AD%20Broker%20Folder%20Rename%20Fix.ps1 -UseBasicParsing).Content
+}
+
 function AllUpdates {
     write-host "Starting All Updates..." -Seperator "`n"
     WFU -Wait
@@ -31,5 +36,6 @@ switch ($codelink) {
     '1' { WFU }
     '2' { DCU }
     '3' { AllUpdates }
+    '4' { ADBRF }
     default { Write-Host "No valid options selected. Closing Puller."  -Seperator "`n" }
 }
